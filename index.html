@@ -12,23 +12,20 @@
         <button
           id="manualButton"
           class="filterButton"
-          onclick="fetchDataOffline(filterByManual)"
+          onclick="fetchDataOnline(filterByManual)"
         >
           Manual
         </button>
         <button
           class="filterButton"
-          onclick="fetchDataOffline(filterByInstagram)"
+          onclick="fetchDataOnline(filterByInstagram)"
         >
           Insta
         </button>
-        <button
-          class="filterButton"
-          onclick="fetchDataOffline(filterByTwitter)"
-        >
+        <button class="filterButton" onclick="fetchDataOnline(filterByTwitter)">
           Twitter
         </button>
-        <button class="clearButton" onclick="fetchDataOffline(noFilter)">
+        <button class="clearButton" onclick="fetchDataOnline(noFilter)">
           Clear
         </button>
       </div>
