@@ -8,6 +8,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   width: 100vw;
+  justify-content: center;
 }
 
 .manualContainer {
@@ -116,10 +117,21 @@ a {
 
 /* SMARTPHONES PORTRAIT */
 @media only screen and (max-width: 420px) {
+  #container {
+    flex-direction: column;
+  }
+  .manualContainer,
+  .instagramContainer,
+  .twitterContainer {
+    width: 80vw;
+  }
   #buttonContainer {
     width: 100%;
     flex-direction: column;
     align-items: center;
+  }
+  #header {
+    height: 60vh;
   }
 }
 
