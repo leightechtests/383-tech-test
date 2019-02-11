@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <link href="./index.css" rel="stylesheet" type="text/css" />
+  <body>
+    <div id="header">
+      <h1>#AFF</h1>
+      <p>Keep up to date with everything Autumn Fashion Fix here</p>
+      <div id="buttonContainer">
+        <button
+          id="manualButton"
+          class="filterButton"
+          onclick="fetchDataOffline(filterByManual)"
+        >
+          Manual
+        </button>
+        <button
+          class="filterButton"
+          onclick="fetchDataOffline(filterByInstagram)"
+        >
+          Insta
+        </button>
+        <button
+          class="filterButton"
+          onclick="fetchDataOffline(filterByTwitter)"
+        >
+          Twitter
+        </button>
+        <button class="clearButton" onclick="fetchDataOffline(noFilter)">
+          Clear
+        </button>
+      </div>
+    </div>
+    <div id="container"></div>
+    <button id="loadMore" onclick="fetchMoreData()">Load 20 more</button>
+  </body>
+  <script src="aff.js"></script>
+</html>
