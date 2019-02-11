@@ -10,10 +10,12 @@ const apiRequest = () =>
   );
 
 const fetchData = (filterFunction = noFilter) =>
-  apiRequest().then(({ items }) => {
-    const filteredItems = filterFunction(items);
-    setContent(filteredItems);
-  });
+  apiRequest()
+    .then(({ items }) => {
+      const filteredItems = filterFunction(items);
+      setContent(filteredItems);
+    })
+    .then(() => hideSpinner());
 
 const noFilter = items => items;
 const filterByManual = items =>
@@ -59,7 +61,7 @@ const formatInstagramItem = ({
     image: { thumb }
   }
 }) =>
-  `<div class="instagramContainer"><img src=${thumb} class="instagramImage" onerror="this.src='./fallback-insta.jpg'"/><p class="instagramUsername">${username}</p><p class="instagramCaption">${pullOutLinks(
+  `<div class="instagramContainer"><img class="socialIcon" src="./instagram.svg"/><img src=${thumb} class="instagramImage" onerror="this.src='./fallback-insta.jpg'"/><p class="username">${username}</p><p class="instagramCaption">${pullOutLinks(
     caption
   )}</p></div>`;
 
@@ -69,9 +71,11 @@ const formatTwitterItem = ({
     user: { username }
   }
 }) =>
-  `<div class="twitterContainer"><p class="twitterUsername">${username}</p> <p class="twitterTweet">${pullOutLinks(
-    tweet
-  )}</p></div>`;
+  `<div class="twitterContainer"><img class="socialIcon" src="./twitter.svg" /><p class="username">${makeTwitterUsernameLink(
+    username
+  )}</p> <p class="twitterTweet">${pullOutLinks(tweet)}</p></div>`;
+
+const makeTwitterUsernameLink = username => pullOutLinks(`@${username}`);
 
 const pullOutLinks = text =>
   text
@@ -109,5 +113,10 @@ const appendContent = items => {
 // manualButton.addEventListener("click", () => {
 //   loadMore.onclick = "fetchMoreData(filterByManual)";
 // });
+
+const hideSpinner = () => {
+  const spinner = document.getElementById("spinner");
+  spinner.classList.add("hide");
+};
 
 window.onload = fetchData();

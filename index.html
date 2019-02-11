@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <link href="./index.css" rel="stylesheet" type="text/css" />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous"
+  />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <body>
     <div id="header">
@@ -11,15 +17,15 @@
       <div id="buttonContainer">
         <button
           id="manualButton"
-          class="filterButton"
+          class="button"
           onclick="fetchData(filterByManual)"
         >
           Manual
         </button>
-        <button class="filterButton" onclick="fetchData(filterByInstagram)">
+        <button class="button" onclick="fetchData(filterByInstagram)">
           Insta
         </button>
-        <button class="filterButton" onclick="fetchData(filterByTwitter)">
+        <button class="button" onclick="fetchData(filterByTwitter)">
           Twitter
         </button>
         <button class="clearButton" onclick="fetchData(noFilter)">
@@ -27,8 +33,12 @@
         </button>
       </div>
     </div>
+    <div id="spinner"></div>
     <div id="container"></div>
-    <button id="loadMore" onclick="fetchMoreData()">Load 20 more</button>
+    <button class="button" onclick="fetchMoreData()">
+      <div id="buttonSpinner"></div>
+      Load 20 more
+    </button>
   </body>
   <script src="aff.js"></script>
 </html>
