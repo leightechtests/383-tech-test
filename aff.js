@@ -264,4 +264,4 @@ const appendContent = items => {
 //   loadMore.onclick = "fetchMoreData(filterByManual)";
 // });
 
-window.onload = fetchDataOffline(noFilter);
+window.onload = fetchDataOnline(noFilter);
