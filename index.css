@@ -14,7 +14,6 @@ body {
 .manualContainer {
   min-height: 450px;
   width: 350px;
-  min-width: 350px;
 
   border: 1px solid #f2f2f2;
   margin: 1rem;
@@ -41,7 +40,7 @@ a {
 
 .instagramContainer {
   min-height: 370px;
-  min-width: 300px;
+
   width: 300px;
 
   border: 1px solid #f2f2f2;
@@ -60,7 +59,7 @@ a {
 
 .twitterContainer {
   min-height: 250px;
-  min-width: 300px;
+
   width: 300px;
   border: 1px solid #f2f2f2;
 
@@ -132,6 +131,9 @@ a {
   }
   #header {
     height: 60vh;
+  }
+  #caption {
+    text-align: center;
   }
 }
 
