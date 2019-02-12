@@ -1,9 +1,3 @@
-const fetchDataOffline = filterFunction => {
-  const filteredItems = sortByDatePublished(
-    filterFunction([...data.items, ...data.items, ...data.items])
-  );
-  setContent(filteredItems);
-};
 const apiRequest = () =>
   fetch("http://private-cc77e-aff.apiary-mock.com/posts").then(res =>
     res.json()
@@ -12,8 +6,8 @@ const apiRequest = () =>
 const fetchData = (filterFunction = noFilter) =>
   apiRequest()
     .then(({ items }) => {
-      const filteredItems = filterFunction(items);
-      setContent(filteredItems);
+      const filteredAndSortedItems = sortByDatePublished(filterFunction(items));
+      setContent(filteredAndSortedItems);
     })
     .then(() => hideSpinner());
 
@@ -98,7 +92,7 @@ const pullOutLinks = text =>
 
 const fetchMoreData = (filterFunction = noFilter) =>
   apiRequest().then(({ items }) => {
-    const filteredItems = filterFunction(items);
+    const filteredItems = sortByDatePublished(filterFunction(items));
     appendContent(filteredItems);
   });
 
